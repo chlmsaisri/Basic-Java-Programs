@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+class Solution {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a character: ");
+        char ch = sc.next().charAt(0);         // see this line,to take single charcter take charAt(0),if u take only sc.next(),we get wrong output
+
+        if (ch >= 'a' && ch <= 'z') {
+            System.out.println("0");
+        }
+        else if (ch >= 'A' && ch <= 'Z') {
+            System.out.println("1");
+        }
+        else {
+            System.out.println("-1");
+        }
+    }
+}

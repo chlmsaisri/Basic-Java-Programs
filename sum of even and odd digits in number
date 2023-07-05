@@ -1,0 +1,21 @@
+class Solution {
+	
+	public static void main(String args[]) {
+		
+		// Write code here
+		Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+        int sum1=0,sum2=0;
+        while(n!=0) {
+			int digit=n%10;           //getting last digit of num
+			if(digit%2==0) {
+				sum1 += digit;              // sum of even num
+			}
+			else {  
+				sum2 += digit;             //sum of odd num in a digit
+			}
+            n=n/10;               //updating num
+		}
+		System.out.println(sum1 +" "+ sum2);
+	}
+}

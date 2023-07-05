@@ -24,3 +24,45 @@ class Solution {
         System.out.println(r);
     }
 }
+
+
+
+
+// to handle exceptions,we can write as:
+
+import java.util.Scanner;
+
+class Solution {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+
+        int basic;
+        char grade;
+
+        try {
+            basic = sc.nextInt();
+            grade = sc.next().charAt(0);
+
+            int hra = (int) (0.2 * basic);
+            int da = (int) (0.5 * basic);
+            int pf = (int) (0.11 * basic);
+            int allow;
+
+            if (grade == 'A') {
+                allow = 1700;
+            } else if (grade == 'B') {
+                allow = 1500;
+            } else {
+                allow = 1300;
+            }
+
+            float t = basic + hra + da + allow - pf;
+            int r = Math.round(t);
+            System.out.println(r);
+
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a valid integer for basic and a valid character for grade.");
+        }
+    }
+}
+

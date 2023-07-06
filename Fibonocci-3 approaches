@@ -1,0 +1,97 @@
+//old method: tc is O(n)             - use this method,when  generating the Fibonacci series for a single input value
+
+
+public class Fibonacci {
+    public static void main(String[] args) {
+        int n = 10; // Number of Fibonacci numbers to generate
+
+        // First two numbers of the series
+        int a = 0;
+        int b = 1;
+
+        System.out.print(a + " " + b);
+
+        for (int i = 2; i < n; i++) {
+            int c = a + b;
+            System.out.print(" " + c);
+
+            // Shift the values for the next iteration
+            a = b;
+            b = c;
+        }
+    }
+}
+
+
+//old method 2: tc is O(n*t),here t is no of test cases  - use this when multiple test cases and each test case requires a single input value
+
+import java.util.*;
+
+public class Fibonacci {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt(); // Number of test cases
+
+        for (int testCase = 0; testCase < t; testCase++) {
+            int n = scanner.nextInt(); // Input value for Fibonacci series generation
+
+            // First two numbers of the series
+            int a = 0;
+            int b = 1;
+
+            System.out.print(a + " " + b);
+
+            for (int i = 2; i < n; i++) {
+                int c = a + b;
+                System.out.print(" " + c);
+
+                // Shift the values for the next iteration
+                a = b;
+                b = c;
+            }
+
+            System.out.println(); // Print new line after each series
+        }
+    }
+}
+
+
+
+//modified approach:tc is O(n*t),here t is no of test cases  -use this when we have multiple test cases,store multiple input values and process them separately
+
+
+
+
+import java.util.*;
+
+public class Fibonacci {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt(); // Number of test cases
+
+        List<Integer> inputs = new ArrayList<>();
+        for (int i = 0; i < t; i++) {
+            int n = scanner.nextInt(); // Input value for Fibonacci series generation
+            inputs.add(n);
+        }
+
+        for (int n : inputs) {
+            // First two numbers of the series
+            int a = 0;
+            int b = 1;
+
+            System.out.print(a + " " + b);
+
+            for (int i = 2; i < n; i++) {
+                int c = a + b;
+                System.out.print(" " + c);
+
+                // Shift the values for the next iteration
+                a = b;
+                b = c;
+            }
+
+            System.out.println(); // Print new line after each series
+        }
+    }
+}

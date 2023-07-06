@@ -1,0 +1,86 @@
+//tc is O(n)
+
+
+public class Solution {
+    public static void sort012(int[] arr) {
+        int low = 0;
+        int mid = 0;
+        int high = arr.length - 1;
+
+        while (mid <= high) {
+            if (arr[mid] == 0) {
+                swap(arr, low, mid);
+                low++;
+                mid++;
+            } else if (arr[mid] == 1) {
+                mid++;
+            } else if (arr[mid] == 2) {
+                swap(arr, mid, high);
+                high--;
+            }
+        }
+    }
+
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 1, 0, 0, 2, 1};
+        sort012(arr);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+//using selection sort(not rrecommended) 
+import java.util.*;
+
+public class Solution 
+{
+    public static void sort012(int[] arr)
+    {
+        //Write your code here
+
+        for(int i=0;i<arr.length;i++) {
+            int min=i;
+            for(int j=i+1;j<arr.length;j++) {
+                if(arr[j]<arr[min]) {
+                    min=j;
+                }
+            }
+            int temp=arr[i];
+            arr[i]=arr[min];
+            arr[min]=temp;
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+
+        // Read the input array
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        sort012(arr);
+    }
+}

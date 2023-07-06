@@ -1,4 +1,4 @@
-// tc is 
+// tc is  O(n)
 
 import java.util.*;
 

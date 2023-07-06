@@ -1,0 +1,75 @@
+// Approach 1: time complexity O(n^2)
+
+class CountPrime {
+    int totalPrime(int s, int e) {
+        int count = 0;
+        for (int i = s; i <= e; i++) {
+            int c = 0;
+            for (int j = 1; j <= i; j++) {
+                if (i % j == 0) {
+                    c++;
+                }
+            }
+            if (c == 2) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+class Solution {
+    public static void main(String args[]) {
+        CountPrime obj = new CountPrime();
+        Scanner sc = new Scanner(System.in);
+        int s = sc.nextInt();
+        int e = sc.nextInt();
+        System.out.println(obj.totalPrime(s, e));
+    }
+}
+
+
+
+
+
+
+
+
+
+//Approach 2: time complexity O(n*sqrt(m))
+
+
+class CountPrime {
+    boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    int totalPrime(int s, int e) {
+        int count = 0;
+        for (int i = s; i <= e; i++) {
+            if (isPrime(i)) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+class Solution {
+    public static void main(String args[]) {
+        CountPrime obj = new CountPrime();
+        Scanner sc = new Scanner(System.in);
+        int s = sc.nextInt();
+        int e = sc.nextInt();
+        System.out.println(obj.totalPrime(s, e));
+    }
+}
+

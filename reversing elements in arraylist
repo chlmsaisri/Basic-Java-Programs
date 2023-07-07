@@ -1,3 +1,5 @@
+This code reverse certain portion of arraylist
+
 //tc is o(n)
 
 import java.util.* ;

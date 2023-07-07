@@ -1,6 +1,6 @@
-//
+//both time complexities are o(lon n),but 2nd code has a more efficient implementation due to the elimination of the unnecessary array.
 
-
+1st method:
 
 import java.util.* ;
 import java.io.*; 
@@ -26,3 +26,40 @@ public class Solution {
         System.out.println(res);
     }
 }
+
+
+
+
+//2nd method:
+
+
+import java.util.Scanner;
+
+public class CountSetBits {
+    public static int countSetBits(int n) {
+        int count = 0;
+        while (n != 0) {
+            if ((n & 1) == 1) {
+                count++;
+            }
+            n = n >>> 1;        //here we r using unsigned >>> than signed >> .c reason below
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int n = sc.nextInt();
+        int setBitsCount = countSetBits(n);
+        System.out.println("Number of set bits: " + setBitsCount);
+    }
+}
+
+
+
+/*
+uses the unsigned right shift operator >>> instead of the regular right shift operator >>.
+The unsigned right shift operator fills the leftmost bit with a zero, which ensures that the sign bit is not propagated during the shift.
+This is important because we want to count the set bits correctly regardless of the sign of the input integer.
+*/

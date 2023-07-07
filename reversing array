@@ -1,0 +1,66 @@
+// 1st method -O(n)
+
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] a = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+
+        int[] b = new int[n];
+        for (int i = n - 1; i >= 0; i--) {
+            b[n - i - 1] = a[i];
+        }
+
+        System.out.println("Reversed Array:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(b[i] + " ");
+        }
+    }
+}
+
+
+
+
+
+//2nd method-O(n)          - we can use any method
+
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        reverseArray(arr);
+
+        System.out.println("Reversed Array:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    public static void reverseArray(int[] arr) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+
+            start++;
+            end--;
+        }
+    }
+}

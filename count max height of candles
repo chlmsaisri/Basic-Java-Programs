@@ -1,0 +1,28 @@
+//counts the number of tallest candles
+//tc O(n)
+
+
+public static int birthdayCakeCandles(int candles_count, int[] candles) {
+    int max_height = 0;
+    int count = 0;
+    
+    // Find the maximum height of candles
+    for (int i = 0; i < candles_count; i++) {
+        if (candles[i] > max_height) {
+            max_height = candles[i];
+        }
+    }
+    
+    // Count the number of tallest candles
+    for (int i = 0; i < candles_count; i++) {
+        if (candles[i] == max_height) {
+            count++;
+        }
+    }
+    
+    return count;
+}
+
+
+
+

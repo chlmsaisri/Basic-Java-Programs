@@ -32,3 +32,39 @@ public class MaxMinSum {
         findMaxMinSum(arr);
     }
 }
+
+
+---------------------*************************----------------------------
+
+
+void miniMaxSum(int arr_count, int* arr) {
+    long long int minSum = arr[0];
+    long long int maxSum = arr[0];
+    long long int sum = arr[0];
+    
+    // Step 1: Initialize minSum, maxSum, and sum with the first element of the array
+    
+    for (int i = 1; i < arr_count; i++) {
+        sum += arr[i];
+        
+        // Step 2: Traverse the array from the second element to the fifth element
+        
+        if (arr[i] < minSum) {
+            minSum = arr[i];
+        }
+        
+        // Step 3: Update minSum if the current element is smaller
+        
+        if (arr[i] > maxSum) {
+            maxSum = arr[i];
+        }
+        
+        // Step 4: Update maxSum if the current element is larger
+    }
+    
+    // Step 5: At the end of the traversal, minSum will represent the minimum sum of four elements,
+    // and maxSum will represent the maximum sum of four elements.
+    
+    printf("%lld %lld", sum - maxSum, sum - minSum);
+    // Step 6: Print the minimum sum and maximum sum as a single line of two space-separated long integers
+}

@@ -1,0 +1,35 @@
+//tc is O(1) 
+
+// I need to determine which cat will reach the mouse first or if both cats will reach the mouse at the same time:  - 
+
+
+
+public class CatAndMouse {
+    public static String catAndMouse(int x, int y, int z) {
+        if (Math.abs(y - z) == Math.abs(x - z)) {
+            return "Mouse C";
+        } else if (Math.abs(y - z) > Math.abs(x - z)) {
+            return "Cat B";
+        } else {
+            return "Cat A";
+        }
+    }
+}
+
+/*
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int queries = scanner.nextInt();
+
+        for (int i = 0; i < queries; i++) {
+            int x = scanner.nextInt();
+            int y = scanner.nextInt();
+            int z = scanner.nextInt();
+            String result = catAndMouse(x, y, z);
+            System.out.println(result);
+        }
+
+        scanner.close();
+    }
+}
+*/

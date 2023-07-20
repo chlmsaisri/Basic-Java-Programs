@@ -1,0 +1,65 @@
+//tc is O(n)
+
+/*  task is to find the count of times sai breaks her record for the highest and lowest scores throughout the season. 
+We need to keep track of the highest and lowest scores as we iterate through the scores array and update the counts accordingly.
+
+
+int* breakingRecords(int scores_count, int* scores, int* result_count) {
+    int low = scores[0];
+    int high = scores[0];
+    int c1 = 0, c2 = 0;
+
+    for (int i = 1; i < scores_count; i++) {
+        if (scores[i] > high) {
+            c1++;
+            high = scores[i];
+        } else if (scores[i] < low) {
+            c2++;
+            low = scores[i];
+        }
+    }
+
+    int* rc = (int*)malloc(2 * sizeof(int));
+    rc[0] = c1; // Count for highest score was broken
+    rc[1] = c2; // Count for lowest score was broken
+
+    *result_count = 2;
+    return rc;
+}
+
+
+
+
+
+//code in java
+
+
+
+import java.util.Arrays;
+
+public class Main {
+    public static int[] breakingRecords(int[] scores) {
+        int low = scores[0];
+        int high = scores[0];
+        int countLow = 0;
+        int countHigh = 0;
+
+        for (int i = 1; i < scores.length; i++) {
+            if (scores[i] > high) {
+                countHigh++;
+                high = scores[i];
+            } else if (scores[i] < low) {
+                countLow++;
+                low = scores[i];
+            }
+        }
+
+        return new int[] { countHigh, countLow };
+    }
+
+    public static void main(String[] args) {
+        int[] scores = { 10, 5, 20, 20, 4, 5, 2, 25, 1 };
+        int[] result = breakingRecords(scores);
+        System.out.println(Arrays.toString(result)); // Output: [2, 4]
+    }
+}

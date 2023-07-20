@@ -1,0 +1,31 @@
+// tc is o(n)
+
+/*
+The function `gradingStudents` takes an array of grades and rounds them according to specific rules.
+Grades below 38 are not rounded, while grades closer to the next multiple of 5 than 3 are rounded up to that multiple.
+*/
+
+
+#include <stdlib.h>
+
+int* gradingStudents(int grades_count, int* grades, int* result_count) {
+    int* rounded_grades = (int*)malloc(grades_count * sizeof(int));
+
+    for (int i = 0; i < grades_count; i++) {
+        int grade = grades[i];
+
+        if (grade < 38) {
+            rounded_grades[i] = grade;
+        } else {
+            int next_multiple_of_5 = (grade / 5 + 1) * 5;
+            if (next_multiple_of_5 - grade < 3) {
+                rounded_grades[i] = next_multiple_of_5;
+            } else {
+                rounded_grades[i] = grade;
+            }
+        }
+    }
+
+    *result_count = grades_count;
+    return rounded_grades;
+}

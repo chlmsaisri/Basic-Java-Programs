@@ -1,0 +1,57 @@
+
+//Lily wants to share a chocolate bar with Ron, and she wants to give him a contiguous segment of the bar ,
+with a sum equal to his birth day and a length equal to his birth month. Determine how many ways she can divide the chocolate.
+
+
+-----------     c     -------
+
+int birthday(int s_count, int* s, int d, int m) {
+    int c = 0;
+
+    for (int i = 0; i < s_count; i++) {
+        int n = m - 1;         
+        int sum = 0;
+        
+        while (n >= 0) {                   // to check continuous m choclate bites
+            sum += s[i + n];
+            n--;
+        }
+
+        if (sum == d) {
+            c++;
+        }
+    }
+
+    return c;
+}
+
+
+
+----------------------           java --------------------
+
+class ChocolateBarDivision {
+    static int birthday(int[] s, int d, int m) {
+        int c = 0;
+
+        for (int i = 0; i <= s.length - m; i++) {
+            int sum = 0;
+            int n = m - 1;
+
+            while (n >= 0) {
+                sum += s[i + n];
+                n--;
+            }
+
+            if (sum == d) {
+                c++;
+            }
+        }
+
+        return c;
+    }
+}
+
+
+
+
+

@@ -1,0 +1,85 @@
+// tc is o(n) 
+
+// The function `migratoryBirds` takes an array of bird sightings and returns the lowest type ID of the most frequently sighted birds.
+
+
+------------------ c lang   -------------------
+
+int migratoryBirds(int arr_count, int* arr) {
+    int b[6] = {0}; // Initialize the array with zeros
+
+    for (int i = 0; i < arr_count; i++) {
+        b[arr[i]]++;
+    }
+
+    int maxCount = b[1];
+    int maxType = 1;
+
+    for (int i = 2; i <= 5; i++) {
+        if (b[i] > maxCount) {
+            maxCount = b[i];
+            maxType = i;
+        }
+    }
+
+    return maxType;
+}
+
+
+
+
+-------------------- java (frequency array)   ------------
+
+public static int migratoryBirds(int[] arr) {
+    int[] b = new int[6]; // Initialize the array with zeros
+
+    for (int i = 0; i < arr.length; i++) {
+        b[arr[i]]++;
+    }
+
+    int maxCount = b[1];
+    int maxType = 1;
+
+    for (int i = 2; i <= 5; i++) {
+        if (b[i] > maxCount) {
+            maxCount = b[i];
+            maxType = i;
+        }
+    }
+
+    return maxType;
+}
+
+
+
+
+--------- java (hash table)   ------
+
+
+import java.util.HashMap;
+import java.util.Map;
+
+public static int migratoryBirds(int[] arr) {
+    Map<Integer, Integer> birdCountMap = new HashMap<>();
+
+    // Count the occurrences of each bird type
+    for (int birdType : arr) {
+        birdCountMap.put(birdType, birdCountMap.getOrDefault(birdType, 0) + 1);
+    }
+
+    int maxCount = 0;
+    int maxType = 0;
+
+    // Find the bird type with the maximum count
+    for (Map.Entry<Integer, Integer> entry : birdCountMap.entrySet()) {
+        int birdType = entry.getKey();
+        int count = entry.getValue();
+
+        if (count > maxCount || (count == maxCount && birdType < maxType)) {
+            maxCount = count;
+            maxType = birdType;
+        }
+    }
+
+    return maxType;
+}

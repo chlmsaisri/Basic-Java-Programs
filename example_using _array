@@ -1,0 +1,26 @@
+// tc is o(n)
+
+//The function bonAppetit takes the bill amounts, Anna's index of the item she didn't eat, and her contribution to the bill and
+determines if Brian overcharged her or if the bill was fairly split. If overcharged, it returns the refund amount; otherwise, it prints "Bon Appetit".
+
+
+-------------           c               --------------------
+
+void bonAppetit(int bill_count, int* bill, int k, int b) {
+    int sum = 0;
+    
+    for (int i = 0; i < bill_count; i++) {
+        if (i != k) {
+            sum += bill[i];
+        }
+    }
+    
+    int anna_share = sum / 2;
+    int brian_owes = b - anna_share;
+    
+    if (brian_owes == 0) {
+        printf("Bon Appetit\n");
+    } else {
+        printf("%d\n", brian_owes);
+    }
+}

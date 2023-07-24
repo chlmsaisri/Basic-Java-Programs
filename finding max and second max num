@@ -1,0 +1,19 @@
+//tc is O(
+
+
+void findMaxAndSecondMax(int numbers[], int size) {
+    int max = numbers[0];           // Variable to store the maximum value
+    int secondMax = numbers[0];     // Variable to store the second maximum value
+
+    for (int i = 1; i < size; i++) {
+        if (numbers[i] > max) {
+            secondMax = max;        // Assign previous max to secondMax
+            max = numbers[i];       // Update max with new maximum value
+        } else if (numbers[i] > secondMax && numbers[i] < max) {
+            secondMax = numbers[i]; // Update secondMax with new second maximum value
+        }
+    }
+
+    printf("Maximum: %d\n", max);
+    printf("Second Maximum: %d\n", secondMax);
+}

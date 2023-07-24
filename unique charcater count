@@ -1,0 +1,29 @@
+// tc is O()
+
+
+#include <stdio.h>
+
+void countCharacters(const char* str) {
+    int charCount[256] = {0}; // Array to store character counts, assuming ASCII characters
+    
+    // Iterate through the string
+    for (int i = 0; str[i] != '\0'; i++) {
+        charCount[(int)str[i]]++;
+    }
+    
+    // Print the character counts
+    for (int i = 0; i < 256; i++) {
+        if (charCount[i] > 0) {
+            printf("'%c' occurs %d times\n", (char)i, charCount[i]);
+        }
+    }
+}
+
+int main() {
+    const char* str = "Hello, World!";
+    countCharacters(str);
+    
+    return 0;
+}
+
+

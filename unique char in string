@@ -1,0 +1,29 @@
+// tc is o(n) 
+
+
+
+#include <stdio.h>
+#include <stdbool.h>
+
+void countCharacters(const char* str) {
+    int charCount[128] = {0}; // Hash table to store character counts, assuming ASCII characters
+    
+    // Iterate through the string
+    for (int i = 0; str[i] != '\0'; i++) {
+        charCount[(int)str[i]]++;
+    }
+    
+    // Print the character counts of unique characters
+    for (int i = 0; i < 128; i++) {
+        if (charCount[i] == 1) {
+            printf("'%c' occurs %d times\n", (char)i, charCount[i]);
+        }
+    }
+}
+
+int main() {
+    const char* str = "Hello, World!";
+    countCharacters(str);
+    
+    return 0;
+}

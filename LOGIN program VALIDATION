@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+bool validateLogin(char username[], char password[], int attempts) {
+    // Base case: maximum number of attempts reached
+    if (attempts <= 0) {
+        printf("Maximum login attempts reached. Access denied.\n");
+        return false;
+    }
+
+    char correctUsername[] = "admin";
+    char correctPassword[] = "password";
+
+    // Check if username and password match
+    if (strcmp(username, correctUsername) == 0 && strcmp(password, correctPassword) == 0) {
+        printf("Login successful!\n");
+        return true;
+    } else {
+        printf("Invalid username or password. %d attempts remaining.\n", attempts - 1);
+        
+        // Prompt for username and password again
+        char inputUsername[100];
+        char inputPassword[100];
+        printf("Username: ");
+        scanf("%s", inputUsername);
+        printf("Password: ");
+        scanf("%s", inputPassword);
+        
+        // Recursive call with decreased attempts
+        return validateLogin(inputUsername, inputPassword, attempts - 1);
+    }
+}
+
+int main() {
+    char username[100];
+    char password[100];
+    
+    printf("Login Program\n");
+    printf("==============\n");
+    
+    printf("Enter username: ");
+    scanf("%s", username);
+    
+    printf("Enter password: ");
+    scanf("%s", password);
+    
+    // Call the validation function with 3 attempts allowed
+    validateLogin(username, password, 3);
+    
+    return 0;
+}

@@ -1,4 +1,4 @@
-//tc is O(
+//tc is O(n)
 
 
 void findMaxAndSecondMax(int numbers[], int size) {

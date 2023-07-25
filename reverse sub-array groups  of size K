@@ -1,0 +1,88 @@
+
+-----------------------      1 ---------------------
+
+class Solution {
+    void reverseInGroups(ArrayList<Long> arr, int N, int K) {
+        for (int i = 0; i < N; i += K) {
+            int left = i;
+            int right = Math.min(i + K - 1, N - 1);
+
+            while (left < right) {
+                // Swap elements at left and right indices
+                Long temp = arr.get(left);
+                arr.set(left, arr.get(right));
+                arr.set(right, temp);
+
+                left++;
+                right--;
+            }
+        }
+    }
+}
+
+-----------------        2     --------------------
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+class Solution {
+    void reverseInGroups(ArrayList<Long> arr, int n, int k) {
+        for (int i = 0; i < n; i += k) {
+            int left = i;
+            int right = Math.min(i + k - 1, n - 1);
+
+            while (left < right) {
+                Collections.swap(arr, left, right);
+                left++;
+                right--;
+            }
+        }
+    }
+}
+
+-----------------------  3   -----------------------
+
+void reverseInGroups(ArrayList<Long> arr, int N, int K) {
+    reverse(arr, 0, Math.min(K - 1, N - 1));
+}
+
+void reverse(ArrayList<Long> arr, int start, int end) {
+    if (start >= end) {
+        return;
+    }
+    
+    // Swap elements at start and end indices
+    Long temp = arr.get(start);
+    arr.set(start, arr.get(end));
+    arr.set(end, temp);
+    
+    // Recursively reverse the remaining sub-array
+    reverse(arr, start + 1, end - 1);
+}
+
+--------------------               c lang -------------------
+
+#include <stdio.h>
+
+void reverse(int arr[], int start, int end) {
+    if (start >= end) {
+        return;
+    }
+
+    // Swap elements at start and end indices
+    int temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+
+    // Recursively reverse the remaining sub-array
+    reverse(arr, start + 1, end - 1);
+}
+
+void reverseInGroups(int arr[], int N, int K) {
+    for (int i = 0; i < N; i += K) {
+        int left = i;
+        int right = (i + K - 1) < (N - 1) ? (i + K - 1) : (N - 1);
+
+        reverse(arr, left, right);
+    }
+}

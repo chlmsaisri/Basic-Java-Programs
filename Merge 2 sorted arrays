@@ -1,0 +1,46 @@
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------
+
+public static void merge(long arr1[], long arr2[], int n, int m) {
+    long b[] = new long[n + m];
+    int i = 0, j = 0, k = 0;
+
+    while (i < n && j < m) {
+        if (arr1[i] >= arr2[j]) {
+            b[k] = arr2[j];
+            j++;
+        } else {
+            b[k] = arr1[i];
+            i++;
+        }
+        k++;
+    }
+
+    while (i < n) {
+        b[k] = arr1[i];
+        i++;
+        k++;
+    }
+
+    while (j < m) {
+        b[k] = arr2[j];
+        j++;
+        k++;
+    }
+
+    for (i = 0; i < n; i++) {
+        arr1[i] = b[i];
+    }
+
+    for (j = 0; j < m; j++) {
+        arr2[j] = b[j + n];
+    }
+}

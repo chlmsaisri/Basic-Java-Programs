@@ -1,0 +1,42 @@
+public class Main {
+    public static void main(String[] args) {
+        Child child = new Child();
+        child.father(); // Call father method from Parent1
+        child.mother(); // Call mother method from Parent2
+        child.child1(); // Call child1 method from Child
+        child.child2(); // Call child2 method from Child
+    
+    }
+}
+
+interface Parent1 {
+    void father();
+    void child1();
+}
+
+interface Parent2 {
+    void mother();
+    void child2();
+}
+
+class Child implements Parent1, Parent2 {
+    @Override
+    public void father() {
+        System.out.println("Father's method");
+    }
+    
+    @Override
+    public void mother() {
+        System.out.println("Mother's method");
+    }
+    
+    @Override
+    public void child1() {
+        System.out.println("Child1's method");
+    }
+    
+    @Override
+    public void child2() {
+        System.out.println("Child2's method");
+    }
+}

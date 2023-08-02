@@ -1,0 +1,65 @@
+public class Main {
+    public static void main(String[] args) {
+        Ece e=new Ece("purna");
+     
+        e.setNum(20);
+        System.out.println(e.getNum());
+        e.Department();
+        e.Overrid("sai");
+        e.aSec(2);
+        e.aSec(6,10);
+    }
+}
+
+abstract class Svecw {
+    private int phonenum;
+    
+    
+    /*
+    public Svecw() {
+        System.out.println("constructor without parameters so no need to implent in child class");
+    }*/
+    
+    public Svecw(String s) {
+         System.out.println("as it is parmetrized have to implement in child class:" +s);
+    }
+    public void setNum(int phonenum) {
+        this.phonenum=phonenum;
+    }
+    
+    public int getNum() {
+        return phonenum;
+    }
+    abstract void Department();
+    
+    public void Overrid(String x) {
+        System.out.println("in parent"+x + "  ");
+    }
+    
+    public void aSec(int x) {
+        System.out.println(x*x + " ");
+    }
+    
+    public void aSec(int x,int y) {
+        System.out.println(x*y);
+    }
+    
+}
+
+class Ece extends Svecw {
+    
+    public Ece(String s) {
+        super(s);
+    }
+    
+    @Override
+    public void Overrid(String x) {
+        super.Overrid(x);
+        System.out.println("in child"+x);
+    }
+    
+    public void Department() {
+        System.out.println("abstrct method implemetation");
+    }
+    
+}

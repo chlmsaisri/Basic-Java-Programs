@@ -15,7 +15,7 @@ abstract class Svecw {
     private int phonenum;
     
     
-    /*
+    /*        NOTE: default and parametrized constructor not exists simultaneously
     public Svecw() {
         System.out.println("constructor without parameters so no need to implent in child class");
     }*/

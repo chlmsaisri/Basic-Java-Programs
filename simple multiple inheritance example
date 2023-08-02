@@ -1,42 +1,68 @@
+
+interface Father {
+    void fatherMethod();
+}
+
+
+interface Mother {
+    void motherMethod();
+}
+
+
+class Child1 implements Father {
+    @Override
+    public void fatherMethod() {
+        System.out.println("Child1's implementation of fatherMethod");
+    }
+    
+    void child1Method() {
+        System.out.println("Child1's own method");
+    }
+}
+
+
+class Child2 implements Mother {
+    @Override
+    public void motherMethod() {
+        System.out.println("Child2's implementation of motherMethod");
+    }
+    
+    void child2Method() {
+        System.out.println("Child2's own method");
+    }
+}
+
+// Child3 class implementing both Father and Mother interfaces
+class Child3 implements Father, Mother {
+    @Override
+    public void fatherMethod() {
+        System.out.println("Child3's implementation of fatherMethod");
+    }
+    
+    @Override
+    public void motherMethod() {
+        System.out.println("Child3's implementation of motherMethod");
+    }
+    
+    void child3Method() {
+        System.out.println("Child3's own method");
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
-        Child child = new Child();
-        child.father(); // Call father method from Parent1
-        child.mother(); // Call mother method from Parent2
-        child.child1(); // Call child1 method from Child
-        child.child2(); // Call child2 method from Child
-    
-    }
-}
-
-interface Parent1 {
-    void father();
-    void child1();
-}
-
-interface Parent2 {
-    void mother();
-    void child2();
-}
-
-class Child implements Parent1, Parent2 {
-    @Override
-    public void father() {
-        System.out.println("Father's method");
-    }
-    
-    @Override
-    public void mother() {
-        System.out.println("Mother's method");
-    }
-    
-    @Override
-    public void child1() {
-        System.out.println("Child1's method");
-    }
-    
-    @Override
-    public void child2() {
-        System.out.println("Child2's method");
+        Child1 c1 = new Child1();
+        Child2 c2 = new Child2();
+        Child3 c3 = new Child3();
+        
+        c1.fatherMethod();
+        c1.child1Method();
+        
+        c2.motherMethod();
+        c2.child2Method();
+        
+        c3.fatherMethod();
+        c3.motherMethod();
+        c3.child3Method();
     }
 }

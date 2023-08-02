@@ -1,0 +1,32 @@
+public class Main {
+    public static void main(String[] args) {
+        SBI h = new SBI();
+        h.deposit(1000);
+
+    
+        h.childMethod();
+    }
+}
+
+abstract class Bank {
+    int amount;
+
+    public void allFor() {
+        System.out.println("default");
+    }
+
+    
+    abstract public void deposit(int amount);
+}
+
+class SBI extends Bank {
+    public void childMethod() {
+        System.out.println("child bank");
+    }
+
+    
+    @Override
+    public void deposit(int amount) {
+        System.out.println(amount);
+    }
+}

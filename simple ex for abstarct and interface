@@ -1,0 +1,52 @@
+public class Main {
+    public static void main(String[] args) {
+        Ece e=new Ece();
+     
+        e.setNum(20);
+        System.out.println(e.getNum());
+        e.Department();
+        
+        Cse c=new Cse();
+        c.d1();
+        c.d2();
+       
+    }
+}
+
+abstract class Svecw {
+   private int phonenum;
+   
+    public void setNum(int phonenum) {
+        this.phonenum=phonenum;
+    }
+    
+    public int getNum() {
+        return phonenum;
+    }
+    abstract void Department();
+    //abstract void Department1(); //gets error if we not implement in subclass
+}
+
+class Ece extends Svecw {
+    
+    public void Department() {
+        System.out.println("abstrct method implemetation");
+    }
+    
+}
+
+interface Jntuk {
+    
+    public void d1();
+    public void d2();
+    
+}
+
+class Cse implements Jntuk {
+    public void d1() {
+        System.out.println("1st method in interface" + "   ");
+    }
+    public void d2() {
+        System.out.println("2nd method in interface" + "   ");
+    }
+}

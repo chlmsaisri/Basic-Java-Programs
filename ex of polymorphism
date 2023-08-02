@@ -1,0 +1,31 @@
+public class Main {
+    public static void main(String[] args) {
+        //Polygon p=new Polygon();
+        Square s=new Square();
+        Rect r=new Rect();
+        s.draw();
+        r.draw();
+       // p.draw();
+        
+        
+    }
+}
+
+class Polygon {
+    public void draw() {
+        System.out.println("parent");
+    }
+}
+
+class Square extends Polygon {
+    public void draw() {
+        System.out.println("square");
+    }
+}
+class Rect extends Polygon {
+    public void draw() {
+        super.draw();
+        System.out.println("Rect");
+    }
+   
+}

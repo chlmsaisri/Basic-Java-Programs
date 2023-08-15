@@ -1,0 +1,60 @@
+//O(N * log(N)) 
+
+
+public class Solution {
+    public static int[] funcSort(int[] inputList, int num) {
+        int[] answer = new int[inputList.length];
+
+        // Sort the first K elements in ascending order
+        System.arraycopy(inputList, 0, answer, 0, num);
+        Arrays.sort(answer, 0, num);
+
+        // Sort the remaining elements in descending order
+        System.arraycopy(inputList, num, answer, num, inputList.length - num);
+        Arrays.sort(answer, num, answer.length);
+        reverse(answer, num, answer.length - 1);
+
+        return answer;
+    }
+
+    ####### write main function
+
+    // Helper method to reverse elements in an array between start and end indices
+    private static void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+}
+
+
+
+-------------------        wth for loops        ------------------
+
+
+public class Solution {
+    public static int[] funcSort(int[] inputList, int num) {
+        int[] answer = new int[inputList.length];
+
+        // Sort the first K elements in ascending order
+        for (int i = 0; i < num; i++) {
+            answer[i] = inputList[i];
+        }
+        Arrays.sort(answer, 0, num);
+
+        // Sort the remaining elements in descending order
+        for (int i = num; i < inputList.length; i++) {
+            answer[i] = inputList[i];
+        }
+        Arrays.sort(answer, num, answer.length);
+        reverse(answer, num, answer.length - 1);
+
+        return answer;
+    }
+    
+}
+
